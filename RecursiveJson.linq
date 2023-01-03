@@ -6,7 +6,7 @@
 public static string JsonTimeStampToDate(string json)
 {
 	var queryRoot = JObject.Parse(json);
-	
+
 	IterateObjectTree(queryRoot, token =>
 	{
 		if (token is JProperty jProp &&

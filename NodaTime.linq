@@ -5,11 +5,11 @@
 
 void Main()
 {
-	var validTime = ValidatePublishTime(6,22);
-	
+	var validTime = ValidatePublishTime(6, 22);
+
 	validTime.Dump();
 	CalculateValidPublishTime(CurrentUkTime).Dump();
-	
+
 	UkTimeZone.Dump();
 
 }
@@ -35,11 +35,12 @@ public DateTime UkDateTimeToUtc(DateTime currentDateTime)
 public DateTime CalculateValidPublishTime(DateTime currentDateTime)
 {
 	var publishDateTime = CurrentUkTime;
-	if(CurrentUkTime.Hour > 22) {
-		publishDateTime = new DateTime(CurrentUkTime.Year, CurrentUkTime.Month,CurrentUkTime.Day,6,1,0).AddDays(1);
+	if (CurrentUkTime.Hour > 22)
+	{
+		publishDateTime = new DateTime(CurrentUkTime.Year, CurrentUkTime.Month, CurrentUkTime.Day, 6, 1, 0).AddDays(1);
 	}
 
-	if (CurrentUkTime.Hour <  6)
+	if (CurrentUkTime.Hour < 6)
 	{
 		publishDateTime = new DateTime(CurrentUkTime.Year, CurrentUkTime.Month, CurrentUkTime.Day, 6, 1, 0);
 	}

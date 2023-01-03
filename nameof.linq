@@ -3,20 +3,20 @@
 void Main()
 {
 
-	var x = new AddUpdateListing()
+	var x = new Foo()
 	{
-		Listing = new SearchableAdvertListing { Listing = 1 }
+		Prop1 = new Bar { Prop2 = 1 }
 	};
-	
-	nameof(x.Listing).Dump();
+
+	nameof(x.Prop1).Dump();
 }
 
-public class AddUpdateListing
+public class Foo
 {
-	public SearchableAdvertListing Listing { get; set; }
+	public Bar Prop1 { get; set; }
 }
 
-public class SearchableAdvertListing
+public class Bar
 {
-	public int Listing { get; set; }
+	public int Prop2 { get; set; }
 }

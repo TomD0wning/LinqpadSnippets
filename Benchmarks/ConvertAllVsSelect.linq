@@ -4,7 +4,7 @@
   <Namespace>BenchmarkDotNet.Running</Namespace>
 </Query>
 
-	#LINQPad optimize+
+#LINQPad optimize+
 
 void Main()
 {

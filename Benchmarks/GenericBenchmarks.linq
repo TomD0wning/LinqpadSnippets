@@ -16,11 +16,11 @@ public class CodeUnderTest
 {
 	[Params(10, 100, 1000)]
 	public int TestRunCount { get; set; }
-	
+
 	[GlobalSetup]
 	public void GlobalSetup()
 	{
-		
+
 	}
 }
 

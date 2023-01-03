@@ -76,14 +76,14 @@ public static class helpers
 	{
 		if (bbox == null) return null;
 
-		var bboxDict = new Dictionary<string, decimal> 
+		var bboxDict = new Dictionary<string, decimal>
 		{
 			{ "boundingBox.topRight.latitude", bbox.TopRight.Latitude },
 			{ "boundingBox.topRight.longitude", bbox.TopRight.Longitude },
 			{ "boundingBox.bottomLeft.latitude", bbox.BottomLeft.Latitude },
 			{ "boundingBox.bottomLeft.longitude", bbox.BottomLeft.Longitude }
 		};
-		
+
 		foreach (var element in bboxDict)
 		{
 			obj.Add(element.Key, element.Value);
@@ -124,7 +124,7 @@ public class Foo
 	public string Type { get; set; }
 
 	public bool Include { get; set; }
-	
+
 	public decimal Range { get; set; }
 }
 

@@ -3,16 +3,16 @@
 void Main()
 {
 
-	arrayShift(new int[] { 3, 8, 9, 7, 6}, 3).Dump();
+	arrayShift(new int[] { 3, 8, 9, 7, 6 }, 3).Dump();
 	var y = "abcax".ToCharArray();
 	var x = "xacba".Reverse();
-	
+
 	x.Dump();
 	y.Dump();
-	
+
 	var n = x.SequenceEqual(y);
 	n.Dump();
-	
+
 }
 
 public int[] arrayShift(int[] a, int k)

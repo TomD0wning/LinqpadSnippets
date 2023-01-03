@@ -7,7 +7,7 @@ void Main()
 	var town = "Rugby";
 	var res = AddressMapping.BuildAddress(streetName, town, postcode);
 	res.Dump();
-	
+
 }
 
 public static class AddressMapping
@@ -53,7 +53,7 @@ public static class AddressMapping
 		{
 			return string.Empty;
 		}
-		
+
 		var trimmedPostcode = postcode.Replace(" ", string.Empty);
 		var outcode = trimmedPostcode.AsSpan();
 		if (outcode.Length > 4)

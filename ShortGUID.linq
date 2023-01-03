@@ -3,7 +3,7 @@
 void Main()
 {
 	var x = Guid.NewGuid();
-	
+
 	x.ToShortString().Dump();
 }
 
@@ -34,6 +34,6 @@ public static class ShortGuidExtensions
 		}
 		return stringBuilder.ToString();
 	}
-	
+
 	public static bool IsValidShortGuid(this string guidString) => ValidShortGuid.IsMatch(guidString);
 }

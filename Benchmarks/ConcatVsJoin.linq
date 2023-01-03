@@ -14,17 +14,19 @@ void Main()
 [MemoryDiagnoser]
 public class ConcatVsJoinBenchmark
 {
+	private const string deliminator = " ";
+
 	[Params(10, 100, 1000)]
 	public int Iterations { get; set; }
 
 	public List<string> BaseItems { get; set; } = new();
-	public List<string> ItemsToAdd {get; set; } = new();
+	public List<string> ItemsToAdd { get; set; } = new();
 
 	[GlobalSetup]
 	public void GlobalSetup()
 	{
 		BaseItems.AddRange(Enumerable.Range(0, Iterations).Select(_ => GenerateString()));
-		BaseItems.AddRange(Enumerable.Range(0, Iterations).Select(_ => GenerateString()));
+		ItemsToAdd.AddRange(Enumerable.Range(0, Iterations).Select(_ => GenerateString()));
 	}
 
 	[Benchmark]
@@ -32,7 +34,7 @@ public class ConcatVsJoinBenchmark
 	{
 		for (int i = 0; i < BaseItems.Count; i++)
 		{
-			var item = string.Concat(BaseItems[i]," ", ItemsToAdd[i]); 
+			var item = string.Concat(BaseItems[i], deliminator, ItemsToAdd[i]);
 		}
 	}
 
@@ -41,7 +43,7 @@ public class ConcatVsJoinBenchmark
 	{
 		for (int i = 0; i < BaseItems.Count; i++)
 		{
-			var item = string.Join(" ", BaseItems[i], ItemsToAdd[i]);
+			var item = string.Join(deliminator, BaseItems[i], ItemsToAdd[i]);
 		}
 	}
 }
