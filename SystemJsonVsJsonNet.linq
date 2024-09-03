@@ -6,11 +6,13 @@
 
 void Main()
 {
-	var jsonString = "{\"PrimaryFruit\":0,\"SecondaryFruit\":\"pear\",\"TertiaryFruit\":1}";
-	
-	NewtonSoftTest(jsonString);
-	SystemJsonTest(jsonString);
+	//var jsonString = "{\"PrimaryFruit\":0,\"SecondaryFruit\":\"pear\",\"TertiaryFruit\":1}";
 
+	//NewtonSoftTest(jsonString);
+	//SystemJsonTest(jsonString);
+	var EndDate = new DateTime(2023,10,12, 23, 59, 59).ToUniversalTime();
+	var x = new Fruits { PrimaryFruit = Fruit.apple, SecondaryFruit = Fruit.orange, TertiaryFruit = Fruit.pear, TimeStamp = EndDate };
+	JsonSerializer.Serialize(x).Dump();
 }
 
 
@@ -36,6 +38,7 @@ public class Fruits
 	public Fruit PrimaryFruit { get; set; }
 	public Fruit SecondaryFruit { get; set; }
 	public Fruit TertiaryFruit { get; set; }
+	public DateTime TimeStamp { get; set; }
 }
 
 public enum Fruit
