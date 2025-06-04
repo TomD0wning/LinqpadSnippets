@@ -47,7 +47,7 @@ public static class AddressMapping
 		});
 	}
 
-	private static string getOutcode(string postcode)
+	private static string GetOutcode(string postcode)
 	{
 		if (string.IsNullOrEmpty(postcode))
 		{
@@ -70,7 +70,7 @@ public static class AddressMapping
 		{
 			StreetName = streetName ?? string.Empty;
 			Town = town ?? string.Empty;
-			Outcode = getOutcode(postCode);
+			Outcode = GetOutcode(postCode);
 		}
 
 		public string StreetName { get; set; }

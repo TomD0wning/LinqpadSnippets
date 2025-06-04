@@ -10,7 +10,8 @@ async Task Main()
 public class Threading
 {
 	private static int _counter = 0;
-
+	private static readonly object _lock = new();
+	
 	public static async Task Run()
 	{
 		Task task1 = Task.Run(() => IncrementCounter());
@@ -26,7 +27,11 @@ public class Threading
 	{
 		for (int i = 0; i < 10000; i++)
 		{
-			_counter++;
+			lock (_lock)
+			{
+				_counter++;
+
+			}
 		}
 	}
 }

@@ -8,30 +8,28 @@
 
 void Main()
 {
-	BenchmarkRunner.Run<EnumToString>();
+	BenchmarkRunner.Run<DecimalFormatting>();
 }
 
 [MemoryDiagnoser]
-public class EnumToString
+public class DecimalFormatting
 {
 	[Params(10, 100, 1000)]
 	public int Iterations { get; set; }
 	
 	[Benchmark]
-	public string GetStringEnum()
+	public string DecimalToString()
 	{
-		return Foo.Bar.ToString();
+		return 35.00M.ToString("0");
 	}
 
 	[Benchmark]
-	public string GetNameOfEnum()
+	public string StringToDecimal()
 	{
-		return nameof(Foo.Bar);
+		var overide = "35.00";
+		var span = overide.AsSpan();
+		var i = span.IndexOf('.');
+		return (i >= 0) ? span[..i].ToString() : overide;
 	}
-}
-
-public enum Foo
-{
-	Bar
 }
 

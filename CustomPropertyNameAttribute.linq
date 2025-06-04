@@ -15,7 +15,7 @@ public static class DictionaryExtensions
 	{
 		return source.GetType().GetProperties().Where(prop => prop.GetValue(source, null) != null).ToDictionary(
 			propInfo => GetPropertyName(propInfo),
-			propInfo => propInfo.GetValue(source, null) ?? string.Empty
+			propInfo => propInfo.GetValue(source, null) ?? default
 		);
 	}
 
